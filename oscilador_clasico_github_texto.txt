@@ -1,0 +1,41 @@
+Mecanica clasica aplicada al oscilador armonico
+Jorge Garza, 2020.
+Ejercicio 1
+z[t_]:=10-9.81*t^2/2;
+v[t_]:=-9.81*t;
+Plot[z[t],{t,0,5}]
+Plot[v[t],{t,0,5}]
+Ejercicio 3
+Solve[10-9.81*t^2/2==0,t]
+Ejercicio 7
+solucion=DSolve[{x''[t]+w0^2*x[t]==0,x[0]==x0,x'[0]==v0},x[t],t]
+Simplify[solucion]
+x[t_,w0_,x0_,v0_]=x0 Cos[t w0]+(v0 Sin[t w0])/w0
+D[x[t,w0,x0,v0],t]
+v[t_,w0_,x0_,v0_]=v0 Cos[t w0]-w0 x0 Sin[t w0]
+k=1.;
+m=1.;
+Plot[x[t,Sqrt[k/m],0.1,0],{t,0,3Pi},AxesLabel->{"t","x"}]
+Plot[v[t,Sqrt[k/m],0.1,0],{t,0,3Pi},AxesLabel->{"t","v"}]
+Manipulate[Plot[x[t,w0,x0,v0],{t,0,6Pi},AxesLabel->{"t","x"},PlotRange->{-1,1}],{w0,0.1,2},{x0,0,1},{v0,0,1}]
+Manipulate[Plot[v[t,w0,x0,v0],{t,0,6Pi},AxesLabel->{"t","v"},PlotRange->{-1,1}],{w0,0.1,2},{x0,0,1},{v0,0,1}]
+ParametricPlot[{x[t,Sqrt[k/m],0.1,0.],v[t,Sqrt[k/m],0.1,0.]},{t,0,2Pi},AspectRatio->1,AxesLabel->{"x","v"}]
+Ejercicio 8
+Clear[k,m]
+energia=Integrate[x'[t]*(m*x''[t]+k*x[t]),t]
+cinetica[t_,w0_,x0_,v0_]=(1/2)* m*v[t,w0,x0,v0]^2
+potencial[t_,w0_,x0_,v0_]=(1/2)*k*x[t,w0,x0,v0]^2
+m=1.;k=1.;
+Plot[cinetica[t,Sqrt[k/m],0.1,0],{t,0,2*Pi}]
+Plot[potencial[t,Sqrt[k/m],0.1,0],{t,0,2*Pi}]
+ParametricPlot[{cinetica[t,Sqrt[k/m],0.1,0],potencial[t,Sqrt[k/m],0.1,0]},{t,0,2*Pi},AxesLabel->{"E Cinetica","E Potencial"}]
+Graficas parametricas (Bonus)
+Antes de trabajar con el oscilador armonico, vamos a hacer unas graficas parametricas ya que trabajaremos en el espacio fase.
+Para hacer graficas parametricas se utiliza el comando ParametricPlot[{x(t),y(t)},{t,inicio,final}]. En donde debemos tener dos funciones que dependen de un mismo parametro. En este ejemplo hemos usado a (x, y) que dependen del parametro t.
+A continuacion se tienen varios ejemplos para generar graficas parametricas
+ParametricPlot[{Cos[teta],Sin[teta]},{teta,0,2Pi},AspectRatio->1]
+ParametricPlot[{3Cos[teta]^3,3Sin[teta]^3},{teta,0,2Pi},AspectRatio->1]
+ParametricPlot[{Cos[teta],Cos[teta]Sin[teta]},{teta,0,2Pi},AspectRatio->1]
+Manipulate[ParametricPlot[{3(t-Sin[t]),3(1-Cos[t])},{t,0,a},AspectRatio->0.4,PlotRange->{{0,60},{0,6}}],
+{a,0.01,25}]
+Manipulate[ParametricPlot[{Exp[t]Cos[t],Exp[t]Sin[t]},{t,0,a},PlotRange->{{-40,900},{-200,1000}}],{a,.1,8}]
