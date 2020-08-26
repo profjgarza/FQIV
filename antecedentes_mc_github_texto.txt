@@ -30,10 +30,7 @@ tres=dos/.λ->h*c/(x*k*T)
 cuatro=Simplify[tres/(8*Pi*c*h)]
 cinco=(-1+E^x)^2*cuatro
 resultado=NSolve[cinco==0,x]
-xmax=x/.resultado[[2]]
-c=2.99792458*10^(8);
-h=6.6261*10^(-34);
-k=1.3807*10^(-23);
+xmax=x/.resultado[[1]] (* Dependiendo de la version de Mathematica se usa resultado[[2]] o resultado[[1]] *)
 Plot[h*c/(xmax*k*T),{T,0.1,1000}]
 (* Se debe ejecutar lo que se encuentra arriba de esta linea en una sola celda *)
 
