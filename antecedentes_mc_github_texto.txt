@@ -1,21 +1,24 @@
-Antecedentes de la mecanica cuantica
-Jorge Garza, 2020.
-Ejercicio 12
+(* Antecedentes de la mecanica cuantica *)
+(* Jorge Garza, 2020. *)
+(* Ejercicio 12 *)
 rho[λ_,T_]:=8*Pi*h*c/(λ^5(Exp[h*c/(λ*k*T)]-1))
 c=2.99792458*10^(8);
 h=6.6261*10^(-34);
 k=1.3807*10^(-23);
 R=8.3144622;
-Plot[rho[λ,1000],{λ,0,10^(-5)},AxesLabel->{Style["λ(m)",Purple,FontSize->16],Stylrho(J/m^4)",Purple,FontSize->16]}]
-Plot[rho[λ,2500],{λ,0,10^(-5)},AxesLabel->{Style["λ(m)",Purple,FontSize->16],Stylrho(J/m^4)",Purple,FontSize->16]}]
+Plot[rho[λ,1000],{λ,0,10^(-5)},AxesLabel->{Style["λ(m)",Purple,FontSize->16],Style["rho(J/m^4)",Purple,FontSize->16]}]
+Plot[rho[λ,2500],{λ,0,10^(-5)},AxesLabel->{Style["λ(m)",Purple,FontSize->16],Style["rho(J/m^4)",Purple,FontSize->16]}]
 Manipulate[Plot[rho[λ,T],{λ,0,10^(-5)}],{T,100,1000}]
-Casos limites de la ecuacion de Planck
+(* Se debe ejecutar lo que se encuentra arriba de esta linea en una sola celda *)
+
+(* Casos limites de la ecuacion de Planck *)
 Clear[c,h,k,R];
 Limit[rho[λ,T],λ->0,Assumptions-> T>0&&c>0&&h>0&&k>0]
 rhoennu=rho[λ,T]/.λ->c/ν
 Series[rhoennu,{ν,0,4}]
 Limit[rho[λ,T],λ->Infinity,Assumptions->T>0&&c>0&&h>0&&k>0]
-Ejercicio 13
+
+(* Ejercicio 13 *)
 c=2.99792458*10^(8);
 h=6.6261*10^(-34);
 k=1.3807*10^(-23);
@@ -32,7 +35,9 @@ c=2.99792458*10^(8);
 h=6.6261*10^(-34);
 k=1.3807*10^(-23);
 Plot[h*c/(xmax*k*T),{T,0.1,1000}]
-Ejercicio 15
+(* Se debe ejecutar lo que se encuentra arriba de esta linea en una sola celda *)
+
+(* Ejercicio 15 *)
 Clear[c, h, k,R] (* Borremos las definiciones de c,h,k y R *)
 energiainterna[ν_,T_]:=3*R*h*ν/(k*(Exp[h*ν/(k*T)]-1))
 capacidad=D[energiainterna[ν,T],T]
