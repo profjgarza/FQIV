@@ -1,0 +1,45 @@
+(* Universidad Autónoma Metropolitana*)
+(* Autor : Jorge Garza *)
+(* Agosto de 2020 *)
+(* Oscilador armónico*)
+(* Ejercicio 37 *)
+solucion[n_,z_]:=cn*HermiteH[n,z]Exp[-z^2/2]
+(* El valor de cn para n =0, 1, 2, 3 y 4 se obtiene de *)
+Solve[Integrate[solucion[0,z]^2, {z,-Infinity,Infinity}]==1,cn]
+Solve[Integrate[solucion[1,z]^2, {z,-Infinity,Infinity}]==1,cn]
+Solve[Integrate[solucion[2,z]^2, {z,-Infinity,Infinity}]==1,cn]
+Solve[Integrate[solucion[3,z]^2, {z,-Infinity,Infinity}]==1,cn]
+Solve[Integrate[solucion[10,z]^2, {z,-Infinity,Infinity}]==1,cn]
+
+normalizacion[n_]:=Sqrt[1/(2^n Factorial[n]Sqrt[Pi])];
+phi[n_,z_]:=normalizacion[n]HermiteH[n,z]Exp[-z^2/2]
+(* Es claro que la función se encuentra normalizada *)
+estado=0;
+Integrate[phi[estado,z]phi[estado,z],{z,-Infinity,Infinity}]
+(* y entre diferentes funciones son ortogonales *)
+estado1=0;
+estado2=1;
+Integrate[phi[estado1,z]phi[estado2,z],{z,-Infinity,Infinity}]
+(* Ejercicio 38 *)
+(* Definir varios valores del estado de interés *)
+estado=0;
+phi[estado,z]
+Plot[phi[estado,z],{z,-5,5}]
+Clear[estado];
+(* Ejercicio 39 *)
+( * Obtengamos el valor esperado de la energía potencial *)
+potencial[n_]:=Integrate[phi[n,z]z^2 phi[n,z],{z,-Infinity,Infinity}]
+(* Y de la energía cinética *)
+cinetica[n_]:=-Integrate[phi[n,z]*D[phi[n,z],{z,2}],{z,-Infinity,Infinity}]
+estado=0;
+potencial[estado]
+cinetica[estado]
+potencial[estado]+cinetica[estado]
+(* De aquí que λ tiene la expresión *)
+λ[n_]:=2*n+1
+(* Se puede graficar la función de onda junto al potencial y su respectiva energía *)
+estado=0;
+Plot[{phi[estado,z]^2+λ[estado],z^2,λ[estado]},{z,-5,5},PlotRange->{0,λ[estado]+1}]
+(* Bonus: Reglas de selección *)
+μ[n1_,n2_]:= Integrate[phi[n1,z]z phi[n2,z],{z,-Infinity,Infinity}]
+μ[2,1]
