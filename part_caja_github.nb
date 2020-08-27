@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     41387,       1175]
-NotebookOptionsPosition[     38343,       1081]
-NotebookOutlinePosition[     38897,       1101]
-CellTagsIndexPosition[     38854,       1098]
+NotebookDataLength[     41855,       1181]
+NotebookOptionsPosition[     38811,       1087]
+NotebookOutlinePosition[     39365,       1107]
+CellTagsIndexPosition[     39322,       1104]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -927,138 +927,143 @@ Cell[BoxData[{
   3.5995263973375998`*^9}},ExpressionUUID->"e491e951-125e-4847-ad95-\
 a043a690dee9"],
 
-Cell[BoxData[{
+Cell[BoxData[
  RowBox[{
-  RowBox[{"nx", "=", "2"}], ";", 
-  RowBox[{"ny", "=", "2"}], ";", 
-  RowBox[{"nz", "=", "1"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"lx", "=", 
-   RowBox[{"ly", "=", 
-    RowBox[{"lz", "=", "1.0"}]}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"g1", "=", 
-   RowBox[{"DensityPlot3D", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{"2", "/", "lz"}], ")"}], "^", 
-       RowBox[{"(", 
-        RowBox[{"1", "/", "2"}], ")"}]}], 
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{"2", "/", "ly"}], ")"}], "^", 
-       RowBox[{"(", 
-        RowBox[{"1", "/", "2"}], ")"}]}], 
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{"2", "/", "lx"}], ")"}], "^", 
-       RowBox[{"(", 
-        RowBox[{"1", "/", "2"}], ")"}]}], 
-      RowBox[{"Sin", "[", 
-       RowBox[{"nx", " ", "x", " ", 
-        RowBox[{"Pi", "/", "lx"}]}], "]"}], " ", 
-      RowBox[{"Sin", "[", 
-       RowBox[{"ny", " ", "y", " ", 
-        RowBox[{"Pi", "/", "ly"}]}], "]"}], 
-      RowBox[{"Sin", "[", 
-       RowBox[{"nz", " ", "z", " ", 
-        RowBox[{"Pi", "/", "lz"}]}], "]"}]}], ",", 
-     RowBox[{"{", 
-      RowBox[{"x", ",", "0", ",", "lx"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"y", ",", "0", ",", "ly"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"z", ",", "0", ",", "lz"}], "}"}], ",", 
-     RowBox[{"OpacityFunction", "\[Rule]", 
-      RowBox[{"Interval", "[", 
-       RowBox[{"{", 
-        RowBox[{"0.0", ",", ".08"}], "}"}], "]"}]}], ",", 
-     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
-     RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"SliceDensityPlot3D", "[", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Para", " ", "la", " ", "caja", " ", "en", " ", "3", "D"}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
    RowBox[{
-    RowBox[{
-     RowBox[{"Sin", "[", 
-      RowBox[{"nx", " ", "x", " ", 
-       RowBox[{"Pi", "/", "lx"}]}], "]"}], " ", 
-     RowBox[{"Sin", "[", 
-      RowBox[{"ny", " ", "y", " ", 
-       RowBox[{"Pi", "/", "ly"}]}], "]"}], 
-     RowBox[{"Sin", "[", 
-      RowBox[{"nz", " ", "z", " ", 
-       RowBox[{"Pi", "/", "lz"}]}], "]"}]}], ",", 
-    RowBox[{"{", 
-     RowBox[{"x", ",", "0", ",", "lx"}], "}"}], ",", 
-    RowBox[{"{", 
-     RowBox[{"y", ",", "0", ",", "ly"}], "}"}], ",", 
-    RowBox[{"{", 
-     RowBox[{"z", ",", "0", ",", "lz"}], "}"}]}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"g2", "=", 
-   RowBox[{"SliceContourPlot3D", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"Sin", "[", 
-       RowBox[{"nx", " ", "x", " ", 
-        RowBox[{"Pi", "/", "lx"}]}], "]"}], " ", 
-      RowBox[{"Sin", "[", 
-       RowBox[{"ny", " ", "y", " ", 
-        RowBox[{"Pi", "/", "ly"}]}], "]"}], 
-      RowBox[{"Sin", "[", 
-       RowBox[{"nz", " ", "z", " ", 
-        RowBox[{"Pi", "/", "lz"}]}], "]"}]}], ",", 
-     RowBox[{"{", 
-      RowBox[{"x", ",", "0", ",", "lx"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"y", ",", "0", ",", "ly"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"z", ",", "0", ",", "lz"}], "}"}], ",", 
-     RowBox[{"Contours", "\[Rule]", "20"}], ",", 
-     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
-     RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"g3", "=", 
-   RowBox[{"ContourPlot3D", "[", 
-    RowBox[{
-     RowBox[{"{", 
+    RowBox[{"nx", "=", "2"}], ";", 
+    RowBox[{"ny", "=", "2"}], ";", 
+    RowBox[{"nz", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"lx", "=", 
+     RowBox[{"ly", "=", 
+      RowBox[{"lz", "=", "1.0"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"g1", "=", 
+     RowBox[{"DensityPlot3D", "[", 
       RowBox[{
        RowBox[{
         RowBox[{
-         RowBox[{"Sin", "[", 
-          RowBox[{"nx", " ", "x", " ", 
-           RowBox[{"Pi", "/", "lx"}]}], "]"}], " ", 
-         RowBox[{"Sin", "[", 
-          RowBox[{"ny", " ", "y", " ", 
-           RowBox[{"Pi", "/", "ly"}]}], "]"}], 
-         RowBox[{"Sin", "[", 
-          RowBox[{"nz", " ", "z", " ", 
-           RowBox[{"Pi", "/", "lz"}]}], "]"}]}], "\[Equal]", "0.3"}], ",", 
-       RowBox[{
+         RowBox[{"(", 
+          RowBox[{"2", "/", "lz"}], ")"}], "^", 
+         RowBox[{"(", 
+          RowBox[{"1", "/", "2"}], ")"}]}], 
         RowBox[{
-         RowBox[{"Sin", "[", 
-          RowBox[{"nx", " ", "x", " ", 
-           RowBox[{"Pi", "/", "lx"}]}], "]"}], " ", 
-         RowBox[{"Sin", "[", 
-          RowBox[{"ny", " ", "y", " ", 
-           RowBox[{"Pi", "/", "ly"}]}], "]"}], 
-         RowBox[{"Sin", "[", 
-          RowBox[{"nz", " ", "z", " ", 
-           RowBox[{"Pi", "/", "lz"}]}], "]"}]}], "\[Equal]", 
-        RowBox[{"-", "0.3"}]}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"x", ",", "0", ",", "lx"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"y", ",", "0", ",", "ly"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"z", ",", "0", ",", "lz"}], "}"}], ",", 
-     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
-     RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}]}], "Input",
+         RowBox[{"(", 
+          RowBox[{"2", "/", "ly"}], ")"}], "^", 
+         RowBox[{"(", 
+          RowBox[{"1", "/", "2"}], ")"}]}], 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"2", "/", "lx"}], ")"}], "^", 
+         RowBox[{"(", 
+          RowBox[{"1", "/", "2"}], ")"}]}], 
+        RowBox[{"Sin", "[", 
+         RowBox[{"nx", " ", "x", " ", 
+          RowBox[{"Pi", "/", "lx"}]}], "]"}], " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"ny", " ", "y", " ", 
+          RowBox[{"Pi", "/", "ly"}]}], "]"}], 
+        RowBox[{"Sin", "[", 
+         RowBox[{"nz", " ", "z", " ", 
+          RowBox[{"Pi", "/", "lz"}]}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "lx"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "0", ",", "ly"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"z", ",", "0", ",", "lz"}], "}"}], ",", 
+       RowBox[{"OpacityFunction", "\[Rule]", 
+        RowBox[{"Interval", "[", 
+         RowBox[{"{", 
+          RowBox[{"0.0", ",", ".08"}], "}"}], "]"}]}], ",", 
+       RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+       RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SliceDensityPlot3D", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sin", "[", 
+        RowBox[{"nx", " ", "x", " ", 
+         RowBox[{"Pi", "/", "lx"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"ny", " ", "y", " ", 
+         RowBox[{"Pi", "/", "ly"}]}], "]"}], 
+       RowBox[{"Sin", "[", 
+        RowBox[{"nz", " ", "z", " ", 
+         RowBox[{"Pi", "/", "lz"}]}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0", ",", "lx"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", "0", ",", "ly"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"z", ",", "0", ",", "lz"}], "}"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"g2", "=", 
+     RowBox[{"SliceContourPlot3D", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sin", "[", 
+         RowBox[{"nx", " ", "x", " ", 
+          RowBox[{"Pi", "/", "lx"}]}], "]"}], " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"ny", " ", "y", " ", 
+          RowBox[{"Pi", "/", "ly"}]}], "]"}], 
+        RowBox[{"Sin", "[", 
+         RowBox[{"nz", " ", "z", " ", 
+          RowBox[{"Pi", "/", "lz"}]}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "lx"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "0", ",", "ly"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"z", ",", "0", ",", "lz"}], "}"}], ",", 
+       RowBox[{"Contours", "\[Rule]", "20"}], ",", 
+       RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+       RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"g3", "=", 
+     RowBox[{"ContourPlot3D", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Sin", "[", 
+            RowBox[{"nx", " ", "x", " ", 
+             RowBox[{"Pi", "/", "lx"}]}], "]"}], " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"ny", " ", "y", " ", 
+             RowBox[{"Pi", "/", "ly"}]}], "]"}], 
+           RowBox[{"Sin", "[", 
+            RowBox[{"nz", " ", "z", " ", 
+             RowBox[{"Pi", "/", "lz"}]}], "]"}]}], "\[Equal]", "0.3"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Sin", "[", 
+            RowBox[{"nx", " ", "x", " ", 
+             RowBox[{"Pi", "/", "lx"}]}], "]"}], " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"ny", " ", "y", " ", 
+             RowBox[{"Pi", "/", "ly"}]}], "]"}], 
+           RowBox[{"Sin", "[", 
+            RowBox[{"nz", " ", "z", " ", 
+             RowBox[{"Pi", "/", "lz"}]}], "]"}]}], "\[Equal]", 
+          RowBox[{"-", "0.3"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "lx"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "0", ",", "ly"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"z", ",", "0", ",", "lz"}], "}"}], ",", 
+       RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+       RowBox[{"Axes", "\[Rule]", "False"}]}], "]"}]}], ";"}]}]}]], "Input",
  CellChangeTimes->{{3.79397178365137*^9, 3.793971880897025*^9}, 
    3.793971941278912*^9, {3.7939720003299627`*^9, 3.7939720103514853`*^9}, {
    3.793972055420924*^9, 3.7939720985866423`*^9}, {3.793972218952548*^9, 
@@ -1074,7 +1079,8 @@ Cell[BoxData[{
    3.794058796433527*^9, 3.794058804936215*^9}, {3.794060496493156*^9, 
    3.7940605146039133`*^9}, {3.794060558917964*^9, 3.794060588977878*^9}, 
    3.794060649336151*^9, {3.794062148100503*^9, 3.79406214832232*^9}, {
-   3.794062317165654*^9, 3.794062317379365*^9}},
+   3.794062317165654*^9, 3.794062317379365*^9}, {3.807558299892448*^9, 
+   3.8075583132762833`*^9}},
  ExpressionUUID -> "cbea7025-1fe6-4af8-8783-6750e5d16496"]
 }, Open  ]]
 }, Open  ]]
@@ -1174,7 +1180,7 @@ Cell[30687, 878, 205, 3, 37, "Text"],
 Cell[30895, 883, 716, 19, 36, "Input"],
 Cell[31614, 904, 182, 3, 37, "Text"],
 Cell[31799, 909, 806, 18, 57, "Input"],
-Cell[32608, 929, 5707, 148, 267, "Input"]
+Cell[32608, 929, 6175, 154, 288, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
