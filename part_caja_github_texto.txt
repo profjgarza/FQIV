@@ -90,6 +90,8 @@ transmision=Simplify[cuadrado/.k->Sqrt[2*m*ener]/h/.kapa->Sqrt[2*m*(altura-ener)
 (* Hagamos experimentos variando m, L y V *)
 m=.1;h=1;L=.1;altura=2;
 Plot[transmision,{ener,0,altura},PlotRange->{0,1}]
+
+(* Para la caja en 3D *)
 nx=2;ny=2;nz=1;
 lx=ly=lz=1.0;
 g1=DensityPlot3D[(2/lz)^(1/2)(2/ly)^(1/2)(2/lx)^(1/2)Sin[nx x Pi/lx] Sin[ny y Pi/ly]Sin[nz z Pi/lz],{x,0,lx},{y,0,ly},{z,0,lz},OpacityFunction->Interval[{0.0,.08}],Boxed->False,Axes->False];
