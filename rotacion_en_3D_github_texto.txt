@@ -1,0 +1,52 @@
+(* Armónicos esféricos *)
+(* Autor : Jorge Garza
+Fecha : Febrero de 2014 *)
+(* Algunos ejemplos de los armónicos esféricos *)
+(* Veámos las expresiones de tres esféricos armónicos con l = 0, m = 0; l = 2, m = 0 y l = 3, m = -1 *)
+SphericalHarmonicY[0,0,theta,phi]
+SphericalHarmonicY[2,0,theta,phi]
+SphericalHarmonicY[3,-1,theta,phi]
+(* Ortogonalidad *)
+producto[l_,m_,lp_,mp_]:=Integrate[Sin[theta]Integrate[Conjugate[SphericalHarmonicY[l,m,theta,phi]]SphericalHarmonicY[lp,mp,theta,phi],{phi,0,2*Pi}],{theta,0,Pi}]
+(* Producto para varios valores de l, m, lp, mp. Cuando l = lp, m = mp y cuando l es diferente a lp o cuando m es diferente a mp. Recuerde que l = 0, 1, 2, 3, .. y m = -l, -l + 1, -l + 2, .. 0, 1, 2,.., l - 1, l. *)
+l=2;lp=2;m=-1;mp=-1;
+producto[l,m,lp,mp]
+Clear[l,lp,m,mp];
+(* Gráficas de los armónicos esféricos *)
+(* Como los armónicos esféricos son cantidades que tienen dependencia con los números complejos entonces para hacer gráficas de ellos es necesario trabajar con su cuadrado. *)
+armonicocuadrado[l_,m_,theta_,phi_]:=Conjugate[SphericalHarmonicY[l,m,theta,phi]]SphericalHarmonicY[l,m,theta,phi];
+l=4;m=-3;
+ParametricPlot3D[{Sin[theta]Cos[phi]armonicocuadrado[l,m,theta,phi],Sin[theta]Sin[phi]armonicocuadrado[l,m,theta,phi],Cos[theta]*armonicocuadrado[l,m,theta,phi]},{phi,0,2*π},{theta,0,π},Axes->None,Mesh->None,Boxed->False,PlotPoints->30]
+Clear[l,m];
+(* Valores propios de los armónicos esféricos *)
+izquierdo[l_,m_]:=(1/Sin[theta]^2)D[SphericalHarmonicY[l,m,theta,phi],{phi,2}]+(1/Sin[theta])D[Sin[theta]*D[SphericalHarmonicY[l,m,theta,phi],theta],theta]
+(* Cambie los valores de l y m y observe si existe alguna regularidad *)
+l=2;m=-1;
+Simplify[Expand[izquierdo[l,m]/SphericalHarmonicY[l,m,theta,phi]]]
+Clear[l,m]
+valor[l_,m_]:=Simplify[Expand[izquierdo[l,m]/SphericalHarmonicY[l,m,theta,phi]]]
+(* Hagamos una tabla donde reportemos valores de ϵ para diferentes valores de l y m *)
+lmax=7;
+Print["----------------------------"];
+Print["  l      m       ϵ"];
+For[l=0,l<=lmax,l++,
+Print["----------------------------"];
+For[m=-l,m<=l,m++,
+Print["  ",l,"    ",PaddedForm[m,2],"    ",PaddedForm[valor[l,m],3]];
+];
+];
+Print["----------------------------"];
+Clear[l,m];
+(* Claramente el valor de ϵ depende de l y no de m. Para una misma l la ϵ toma 2 l + 1  valores. ¿Existe una relación entre el valor de ϵ y el número l? La respuesta es sí ya que ϵ = l(l+1). De nuestra definición de ϵ tenemos que 
+E= ϵ ℏ^2/(2m Subsuperscript[R, c, 2])=l(l+1)ℏ^2/(2m Subsuperscript[R, c, 2])
+Si identificamos al producto m Subsuperscript[R, c, 2] como el momento de inercia, I, entonces
+E= l(l+1)ℏ^2/(2I)
+Clasicamente la energía de una partícula rotando se obtiene de
+E=(1/2)m v^2
+como p=m v
+E=(1/(2m))p^2
+La magnitud del momento angular, J, se obtiene del producto vectorial entre la posición y el momento lineal. Por lo tanto, cuando estos dos vectores son perpendiculares y la posición de la partícula es restringida a tomar valores Subscript[R, c] entonces la magnitud del momento angular es igual a
+J = Subscript[R, c] p
+con lo cual
+E = (1/(2 m)) (J/Rc)^2 = J^2/(2 m Subsuperscript[R, c, 2])
+Comparando con nuestra expresión cuántica podemos identificar a
