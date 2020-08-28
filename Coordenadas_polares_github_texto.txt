@@ -1,0 +1,28 @@
+(* Derivadas en coordenadas polares
+Jorge Garza
+Agosto de 2020 *)
+(* Cambio de coordenadas : polares a cartesianas *)
+r[x,y]=Sqrt[x^2+y^2];
+phi[x,y]=ArcTan[y/x];
+(* Se trabaja con una funcion f[r,phi] que no tiene una definición explícita *)
+(* Primeras derivadas usando la regla de la cadena *)
+dfx[r,phi]=D[f[r,phi],r]D[r[x,y],x]+D[f[r,phi],phi]D[phi[x,y],x]/.x->r Cos[phi]/.y->r Sin[phi];
+dfy[r,phi]=D[f[r,phi],r]D[r[x,y],y]+D[f[r,phi],phi]D[phi[x,y],y]/.x->r Cos[phi]/.y->r Sin[phi];
+(* Segundas derivadas usando la regla de la cadena *)
+d2fx2[r,phi]=D[dfx[r,phi],r]D[r[x,y],x]+D[dfx[r,phi],phi]D[phi[x,y],x]/.x->r Cos[phi]/.y->r Sin[phi];
+d2fy2[r,phi]=D[dfy[r,phi],r]D[r[x,y],y]+D[dfy[r,phi],phi]D[phi[x,y],y]/.x->r Cos[phi]/.y->r Sin[phi];
+(* Juntando términos para el resultado final *)
+resultado=Simplify[d2fx2[r,phi]+d2fy2[r,phi]]
+(* Bonus *)
+x[r,t_]:= r Cos[phi[t]];
+y[r,t_]:= r Sin[phi[t]];
+
+In[3]:= vx[t]=D[x[r,t],t];
+vy[t]=D[y[r,t],t];
+In[5]:= posicion={x[r,t],y[r,t],0}
+velocidad={vx[t],vy[t],0}
+In[7]:= Cross[posicion,m*velocidad]
+In[8]:= Simplify[%]
+vx=D[x[r,phi],r]r'[t]+D[x[r,phi],phi]phi'[t];
+vy=D[y[r,phi],r]r'[t]+D[y[r,phi],phi]phi'[t];
+Simplify[vx^2+vy^2]
