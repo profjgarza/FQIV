@@ -1,0 +1,573 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     19368,        564]
+NotebookOptionsPosition[     17985,        516]
+NotebookOutlinePosition[     18437,        534]
+CellTagsIndexPosition[     18394,        531]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Arm\[OAcute]nicos esf\[EAcute]ricos", "Title",
+ CellChangeTimes->{{3.599388527196403*^9, 3.599388549875648*^9}, {
+  3.600618894887278*^9, 3.60061889971691*^9}}],
+
+Cell["\<\
+Autor : Jorge Garza
+Fecha : Febrero de 2014\
+\>", "Subsubtitle",
+ CellChangeTimes->{{3.599388553388954*^9, 3.599388582842577*^9}, {
+  3.600618879337841*^9, 3.600618885742206*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["(* Algunos ejemplos de los arm\[OAcute]nicos esf\[EAcute]ricos *)", \
+"Subsection",
+ CellChangeTimes->{{3.60061879365252*^9, 3.600618812617453*^9}, 
+   3.600618932074329*^9, {3.807629383023654*^9, 3.807629386485528*^9}}],
+
+Cell[TextData[{
+ "(* Ve\[AAcute]mos las expresiones de tres esf\[EAcute]ricos \
+arm\[OAcute]nicos con ",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ " = 0, m = 0; ",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ " = 2, m = 0 y ",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ " = 3, m = -1 *)"
+}], "Text",
+ CellChangeTimes->{{3.600772360313512*^9, 3.6007724080306473`*^9}, {
+  3.807629395733453*^9, 3.8076293997257347`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SphericalHarmonicY", "[", 
+  RowBox[{"0", ",", "0", ",", "\[Theta]", ",", "\[Phi]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6006188161977882`*^9, 3.60061883451303*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SphericalHarmonicY", "[", 
+  RowBox[{"2", ",", "0", ",", "\[Theta]", ",", "\[Phi]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6006188430491257`*^9, 3.600618845321218*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SphericalHarmonicY", "[", 
+  RowBox[{"3", ",", 
+   RowBox[{"-", "1"}], ",", "\[Theta]", ",", "\[Phi]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.600618851640931*^9, 3.600618859376429*^9}, {
+  3.6006826392475977`*^9, 3.600682639411935*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["(* Ortogonalidad *)", "Subsection",
+ CellChangeTimes->{{3.600618915391464*^9, 3.600618943538289*^9}, {
+  3.807629421614106*^9, 3.8076294247084417`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"producto", "[", 
+   RowBox[{"l_", ",", "m_", ",", "lp_", ",", "mp_"}], "]"}], ":=", 
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+     RowBox[{"Integrate", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Conjugate", "[", 
+         RowBox[{"SphericalHarmonicY", "[", 
+          RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}], 
+         "]"}], 
+        RowBox[{"SphericalHarmonicY", "[", 
+         RowBox[{"lp", ",", "mp", ",", "\[Theta]", ",", "\[Phi]"}], "]"}]}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{"\[Phi]", ",", "0", ",", 
+         RowBox[{"2", "*", "Pi"}]}], "}"}]}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Theta]", ",", "0", ",", "Pi"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.600618986939622*^9, 3.6006191210074987`*^9}, {
+  3.6006191642666483`*^9, 3.600619166162613*^9}}],
+
+Cell[TextData[{
+ "(* Producto para varios valores de ",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ ", m, ",
+ StyleBox["lp",
+  FontSlant->"Italic"],
+ ", mp. Cuando ",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ " = ",
+ StyleBox["lp",
+  FontSlant->"Italic"],
+ ", m = mp y cuando ",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ " es diferente a ",
+ StyleBox["lp",
+  FontSlant->"Italic"],
+ " o cuando m es diferente a mp. Recuerde que ",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ " = 0, 1, 2, 3, .. y m = -",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ ", -",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ " + 1, -",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ " + 2, .. 0, 1, 2,..,",
+ StyleBox[" l",
+  FontSlant->"Italic"],
+ " - 1, ",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ ". *)"
+}], "Text",
+ CellChangeTimes->{{3.600682380844172*^9, 3.600682450064378*^9}, {
+  3.600692389367386*^9, 3.6006924368459272`*^9}, {3.807629436731762*^9, 
+  3.807629442076378*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"l", "=", "2"}], ";", 
+  RowBox[{"lp", "=", "2"}], ";", 
+  RowBox[{"m", "=", 
+   RowBox[{"-", "1"}]}], ";", 
+  RowBox[{"mp", "=", 
+   RowBox[{"-", "1"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"producto", "[", 
+  RowBox[{"l", ",", "m", ",", "lp", ",", "mp"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{"l", ",", "lp", ",", "m", ",", "mp"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6006191238279*^9, 3.600619172063476*^9}, {
+  3.60068216938455*^9, 3.600682375596537*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["(* Gr\[AAcute]ficas de los arm\[OAcute]nicos esf\[EAcute]ricos *)", \
+"Subsection",
+ CellChangeTimes->{{3.6006825753864594`*^9, 3.600682594555459*^9}, {
+  3.600682655082943*^9, 3.6006826557315207`*^9}, {3.8076294764113817`*^9, 
+  3.807629480634397*^9}}],
+
+Cell["\<\
+(* Como los arm\[OAcute]nicos esf\[EAcute]ricos son cantidades que tienen \
+dependencia con los n\[UAcute]meros complejos entonces para hacer \
+gr\[AAcute]ficas de ellos es necesario trabajar con su cuadrado. *)\
+\>", "Text",
+ CellChangeTimes->{{3.600682470947279*^9, 3.60068256407126*^9}, {
+  3.807629453388845*^9, 3.807629456514483*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"armonicocuadrado", "[", 
+    RowBox[{"l_", ",", "m_", ",", "\[Theta]_", ",", "\[Phi]_"}], "]"}], ":=", 
+   
+   RowBox[{
+    RowBox[{"Conjugate", "[", 
+     RowBox[{"SphericalHarmonicY", "[", 
+      RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}], "]"}], 
+    RowBox[{"SphericalHarmonicY", "[", 
+     RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}]}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.600689050448324*^9, 3.600689087788158*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"l", "=", "4"}], ";", 
+  RowBox[{"m", "=", 
+   RowBox[{"-", "3"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ParametricPlot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+      RowBox[{"Cos", "[", "\[Phi]", "]"}], 
+      RowBox[{"armonicocuadrado", "[", 
+       RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}]}], ",", 
+     
+     RowBox[{
+      RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+      RowBox[{"Sin", "[", "\[Phi]", "]"}], 
+      RowBox[{"armonicocuadrado", "[", 
+       RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}]}], ",", 
+     
+     RowBox[{
+      RowBox[{"Cos", "[", "\[Theta]", "]"}], "*", 
+      RowBox[{"armonicocuadrado", "[", 
+       RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}]}]}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Phi]", ",", "0", ",", 
+     RowBox[{"2", "*", "\[Pi]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+   RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+   RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"PlotPoints", "\[Rule]", "30"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{"l", ",", "m"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.600682893102179*^9, 3.600683048612597*^9}, {
+  3.600683080456747*^9, 3.6006832085060263`*^9}, {3.600683241338035*^9, 
+  3.600683252489958*^9}, {3.6006889145851583`*^9, 3.600688924167685*^9}, {
+  3.60068903390965*^9, 3.6006890342339897`*^9}, {3.6006890823786077`*^9, 
+  3.600689128800205*^9}, {3.600689169622985*^9, 3.6006893242614117`*^9}, {
+  3.600689354416689*^9, 3.600689360508706*^9}, {3.600689392039277*^9, 
+  3.600689392187745*^9}, {3.600689457620652*^9, 3.600689623150807*^9}, {
+  3.6006898425823927`*^9, 3.600689842689859*^9}, {3.600690443711019*^9, 
+  3.600690451783896*^9}, {3.609603409665964*^9, 3.609603435050089*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["(* Valores propios de los arm\[OAcute]nicos esf\[EAcute]ricos *)", \
+"Subsection",
+ CellChangeTimes->{{3.6006898689455976`*^9, 3.600689896324895*^9}, 
+   3.600689965619982*^9, {3.807629485249526*^9, 3.807629488209487*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"izquierdo", "[", 
+   RowBox[{"l_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "/", 
+      RowBox[{
+       RowBox[{"Sin", "[", "\[Theta]", "]"}], "^", "2"}]}], ")"}], 
+    RowBox[{"D", "[", 
+     RowBox[{
+      RowBox[{"SphericalHarmonicY", "[", 
+       RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Phi]", ",", "2"}], "}"}]}], "]"}]}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "/", 
+      RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ")"}], 
+    RowBox[{"D", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sin", "[", "\[Theta]", "]"}], "*", 
+       RowBox[{"D", "[", 
+        RowBox[{
+         RowBox[{"SphericalHarmonicY", "[", 
+          RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}], ",",
+          "\[Theta]"}], "]"}]}], ",", "\[Theta]"}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.592519968134107*^9, 3.5925200878939962`*^9}, {
+  3.5925208181723547`*^9, 3.5925209415909986`*^9}, {3.592521011206688*^9, 
+  3.5925210571054277`*^9}, {3.5925211601647797`*^9, 3.592521161153584*^9}, {
+  3.592521333880653*^9, 3.592521360085937*^9}, {3.592521400318796*^9, 
+  3.592521401412806*^9}, {3.5925215319852858`*^9, 3.5925215434268084`*^9}, {
+  3.592521581623115*^9, 3.5925216207995043`*^9}, {3.592521967031714*^9, 
+  3.5925220081872587`*^9}, {3.592522814631946*^9, 3.5925228146920156`*^9}, {
+  3.592566242193261*^9, 3.592566252759145*^9}, {3.592566674003189*^9, 
+  3.592566772918869*^9}, {3.592569179920223*^9, 3.592569182907378*^9}, {
+  3.592575915414515*^9, 3.592575927075757*^9}, {3.600607081859931*^9, 
+  3.600607131832304*^9}, {3.6006072284000683`*^9, 3.600607420343525*^9}}],
+
+Cell[TextData[{
+ "(* Cambie los valores de ",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ " y m y observe si existe alguna regularidad *)"
+}], "Text",
+ CellChangeTimes->{{3.600690404560053*^9, 3.600690432522344*^9}, {
+  3.807629508050171*^9, 3.807629510872707*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"l", "=", "2"}], ";", 
+  RowBox[{"m", "=", 
+   RowBox[{"-", "1"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{"Expand", "[", 
+   RowBox[{
+    RowBox[{"izquierdo", "[", 
+     RowBox[{"l", ",", "m"}], "]"}], "/", 
+    RowBox[{"SphericalHarmonicY", "[", 
+     RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}]}], "]"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", 
+  RowBox[{"l", ",", "m"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6006073330040207`*^9, 3.6006073447230387`*^9}, {
+  3.60060743160938*^9, 3.60060747506456*^9}, {3.600607519249408*^9, 
+  3.600607600646397*^9}, {3.6006076308544064`*^9, 3.600607695948473*^9}, {
+  3.600690246262228*^9, 3.6006902490375137`*^9}, {3.609669704732572*^9, 
+  3.6096697213777227`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"valor", "[", 
+   RowBox[{"l_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{"Simplify", "[", 
+   RowBox[{"Expand", "[", 
+    RowBox[{
+     RowBox[{"izquierdo", "[", 
+      RowBox[{"l", ",", "m"}], "]"}], "/", 
+     RowBox[{"SphericalHarmonicY", "[", 
+      RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}]}], "]"}],
+    "]"}]}]], "Input",
+ CellChangeTimes->{{3.609672389518619*^9, 3.609672395830565*^9}}],
+
+Cell[TextData[{
+ "(* Hagamos una tabla donde reportemos valores de \[Epsilon] para diferentes \
+valores de ",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ " y m *)"
+}], "Text",
+ CellChangeTimes->{{3.60069078981596*^9, 3.600690810055607*^9}, 
+   3.60069146550945*^9, {3.600692483115796*^9, 3.600692484691887*^9}, {
+   3.807629521017703*^9, 3.8076295241914454`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"lmax", "=", "7"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<----------------------------\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<  l      m       \[Epsilon]\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"l", "=", "0"}], ",", 
+    RowBox[{"l", "<=", "lmax"}], ",", 
+    RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Print", "[", "\"\<----------------------------\>\"", "]"}], ";",
+      "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"m", "=", 
+        RowBox[{"-", "l"}]}], ",", 
+       RowBox[{"m", "\[LessEqual]", "l"}], ",", 
+       RowBox[{"m", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Print", "[", 
+         RowBox[{"\"\<  \>\"", ",", "l", ",", "\"\<    \>\"", ",", 
+          RowBox[{"PaddedForm", "[", 
+           RowBox[{"m", ",", "2"}], "]"}], ",", "\"\<    \>\"", ",", 
+          RowBox[{"PaddedForm", "[", 
+           RowBox[{
+            RowBox[{"valor", "[", 
+             RowBox[{"l", ",", "m"}], "]"}], ",", "3"}], "]"}]}], "]"}], 
+        ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]",
+    "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<----------------------------\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{"l", ",", "m"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6006908153545837`*^9, 3.6006912947385197`*^9}, {
+  3.6006913347876596`*^9, 3.600691439007605*^9}, {3.600691838254992*^9, 
+  3.6006918403910847`*^9}, {3.600691970769411*^9, 3.6006919712972317`*^9}, {
+  3.609672163481476*^9, 3.6096721638770847`*^9}, {3.609672409322665*^9, 
+  3.609672424385769*^9}}],
+
+Cell[TextData[{
+ "(* Claramente el valor de \[Epsilon] depende de l y no de m. Para una misma \
+l la \[Epsilon] toma 2 l + 1  valores. \[DownQuestion]Existe una relaci\
+\[OAcute]n entre el valor de \[Epsilon] y el n\[UAcute]mero l? La respuesta \
+es s\[IAcute] ya que \[Epsilon] = ",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ "(",
+ StyleBox["l",
+  FontSlant->"Italic"],
+ "+1). De nuestra definici\[OAcute]n de \[Epsilon] tenemos que \n",
+ Cell[BoxData[
+  RowBox[{"E", "=", " ", 
+   RowBox[{
+    RowBox[{"\[Epsilon]", " ", 
+     RowBox[{
+      SuperscriptBox["\[HBar]", "2"], "/", 
+      RowBox[{"(", 
+       RowBox[{"2", "m", " ", 
+        SubsuperscriptBox["R", "c", "2"]}], ")"}]}]}], "=", 
+    RowBox[{
+     StyleBox["l",
+      FontSlant->"Italic"], 
+     RowBox[{"(", 
+      RowBox[{
+       StyleBox["l",
+        FontSlant->"Italic"], "+", "1"}], ")"}], 
+     RowBox[{
+      SuperscriptBox["\[HBar]", "2"], "/", 
+      RowBox[{"(", 
+       RowBox[{"2", "m", " ", 
+        SubsuperscriptBox["R", "c", "2"]}], ")"}]}]}]}]}]]],
+ "\n",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{
+   "Si", " ", "identificamos", " ", "al", " ", "producto", " ", "m", " ", 
+    SubsuperscriptBox["R", "c", "2"], " ", "como", " ", "el", " ", "momento", 
+    " ", "de", " ", "inercia"}], ",", " ", "I", ",", " ", "entonces"}]]],
+ "\n",
+ Cell[BoxData[
+  RowBox[{"E", "=", " ", 
+   RowBox[{
+    StyleBox["l",
+     FontSlant->"Italic"], 
+    RowBox[{"(", 
+     RowBox[{
+      StyleBox["l",
+       FontSlant->"Italic"], "+", "1"}], ")"}], 
+    RowBox[{
+     SuperscriptBox["\[HBar]", "2"], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", "I"}], ")"}]}]}]}]]],
+ "\n",
+ Cell[BoxData[{
+  RowBox[{
+  "Clasicamente", " ", "la", " ", "energ\[IAcute]a", " ", "de", " ", "una", 
+   " ", "part\[IAcute]cula", " ", "rotando", " ", "se", " ", "obtiene", " ", 
+   "de"}], "\[IndentingNewLine]", 
+  RowBox[{"E", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "/", "2"}], ")"}], "m", " ", 
+    SuperscriptBox["v", "2"]}]}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"como", " ", "p"}], "=", 
+   RowBox[{"m", " ", "v"}]}]}]],
+ "\n",
+ Cell[BoxData[
+  RowBox[{"E", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "/", 
+      RowBox[{"(", 
+       RowBox[{"2", "m"}], ")"}]}], ")"}], 
+    SuperscriptBox["p", "2"]}]}]]],
+ "\nLa magnitud del momento angular, J, se obtiene del producto vectorial \
+entre la posici\[OAcute]n y el momento lineal. Por lo tanto, cuando estos dos \
+vectores son perpendiculares y la posici\[OAcute]n de la part\[IAcute]cula es \
+restringida a tomar valores ",
+ Cell[BoxData[
+  SubscriptBox["R", "c"]],
+  CellChangeTimes->{{3.6006925436882267`*^9, 3.600692544531597*^9}, {
+   3.600692596312875*^9, 3.60069268346449*^9}, {3.600692957257079*^9, 
+   3.6006929621869802`*^9}}],
+ " entonces la magnitud del momento angular es igual a\nJ = ",
+ Cell[BoxData[
+  SubscriptBox["R", "c"]],
+  CellChangeTimes->{{3.6006925436882267`*^9, 3.600692544531597*^9}, {
+   3.600692596312875*^9, 3.60069268346449*^9}, {3.600692957257079*^9, 
+   3.6006929621869802`*^9}}],
+ " p\ncon lo cual\nE = (1/(2 m)) ",
+ Cell[BoxData[
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{"J", "/", "Rc"}], ")"}], "2"]],
+  CellChangeTimes->{{3.6006930900416603`*^9, 3.600693105543037*^9}, {
+    3.600693513223217*^9, 3.600693519525448*^9}, 3.6006936209265547`*^9}],
+ " = ",
+ Cell[BoxData[
+  SuperscriptBox["J", "2"]],
+  CellChangeTimes->{{3.6006930900416603`*^9, 3.600693105543037*^9}, {
+    3.600693513223217*^9, 3.600693519525448*^9}, 3.6006936209265547`*^9}],
+ "/(2 m ",
+ Cell[BoxData[
+  SubsuperscriptBox["R", "c", "2"]],
+  CellChangeTimes->{{3.6006925436882267`*^9, 3.600692544531597*^9}, {
+   3.600692596312875*^9, 3.60069268346449*^9}, {3.600692957257079*^9, 
+   3.6006929621869802`*^9}}],
+ ")\nComparando con nuestra expresi\[OAcute]n cu\[AAcute]ntica podemos \
+identificar a"
+}], "Text",
+ CellChangeTimes->{{3.600691495748021*^9, 3.600691551030846*^9}, {
+  3.600691605612512*^9, 3.600691666471799*^9}, {3.600691812715605*^9, 
+  3.600691828243517*^9}, {3.600692272864699*^9, 3.600692291096409*^9}, {
+  3.6006925217260323`*^9, 3.6006925409256353`*^9}, {3.8076295483749533`*^9, 
+  3.8076296678507967`*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1296, 874},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 166, 2, 92, "Title"],
+Cell[748, 26, 189, 5, 49, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[962, 35, 226, 3, 44, "Subsection"],
+Cell[1191, 40, 408, 14, 30, "Text"],
+Cell[1602, 56, 193, 3, 28, "Input"],
+Cell[1798, 61, 194, 3, 28, "Input"],
+Cell[1995, 66, 262, 5, 28, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2294, 76, 158, 2, 44, "Subsection"],
+Cell[2455, 80, 925, 24, 46, "Input"],
+Cell[3383, 106, 928, 41, 49, "Text"],
+Cell[4314, 149, 550, 14, 63, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4901, 168, 259, 4, 44, "Subsection"],
+Cell[5163, 174, 349, 6, 30, "Text"],
+Cell[5515, 182, 515, 13, 28, "Input"],
+Cell[6033, 197, 2008, 46, 80, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8078, 248, 228, 3, 44, "Subsection"],
+Cell[8309, 253, 1744, 39, 28, "Input"],
+Cell[10056, 294, 261, 7, 30, "Text"],
+Cell[10320, 303, 810, 19, 63, "Input"],
+Cell[11133, 324, 445, 12, 28, "Input"],
+Cell[11581, 338, 359, 9, 30, "Text"],
+Cell[11943, 349, 1852, 45, 199, "Input"],
+Cell[13798, 396, 4159, 116, 299, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
