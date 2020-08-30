@@ -1,0 +1,326 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     10799,        318]
+NotebookOptionsPosition[      9798,        283]
+NotebookOutlinePosition[     10254,        301]
+CellTagsIndexPosition[     10211,        298]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["(* Orbitales hidrogenoides: An\[AAcute]lisis de la parte radial", \
+"Title",
+ CellChangeTimes->{{3.591964793532199*^9, 3.5919648278381615`*^9}, 
+   3.5919663145561967`*^9, {3.599388765426895*^9, 3.5993887806807747`*^9}, {
+   3.807745939496731*^9, 3.807745940177333*^9}}],
+
+Cell["Art\[IAcute]culo Contactos 81, 5-10 (2011), J. Garza *)", "Subtitle",
+ CellChangeTimes->{{3.5919648608150473`*^9, 3.591964885191442*^9}, {
+  3.591965610931952*^9, 3.5919656181583652`*^9}, {3.8077459429855957`*^9, 
+  3.807745944009255*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"b", "[", 
+   RowBox[{"Z_", ",", "n_", ",", "l_", ",", "j_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"2", "*", 
+      RowBox[{"Z", "/", "n"}]}], ")"}], "*", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"j", "+", "l", "-", "n"}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"j", "*", 
+       RowBox[{"(", 
+        RowBox[{"j", "+", 
+         RowBox[{"2", "*", "l"}], "+", "1"}], ")"}]}], ")"}]}], "*", 
+    RowBox[{"b", "[", 
+     RowBox[{"Z", ",", "n", ",", "l", ",", 
+      RowBox[{"j", "-", "1"}]}], "]"}]}], "/;", 
+   RowBox[{"j", "\[GreaterEqual]", "1"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "[", 
+   RowBox[{"Z_", ",", "n_", ",", "l_", ",", "j_"}], "]"}], ":=", 
+  RowBox[{"b0", "/;", 
+   RowBox[{"j", "\[Equal]", "0"}]}]}]}], "Input",
+ CellChangeTimes->{{3.591964898221187*^9, 3.5919650727351685`*^9}, 
+   3.591965668527246*^9, {3.5919719996901994`*^9, 3.5919720076236534`*^9}, {
+   3.591972055786408*^9, 3.591972088390273*^9}, {3.5919723083448534`*^9, 
+   3.5919723289230304`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"radial", "[", 
+   RowBox[{"Z_", ",", "n_", ",", "l_", ",", "r_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"r", "^", "l"}], ")"}], "*", 
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", "Z"}], "*", 
+      RowBox[{"r", "/", "n"}]}], "]"}], "*", 
+    RowBox[{"Sum", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"b", "[", 
+        RowBox[{"Z", ",", "n", ",", "l", ",", "j"}], "]"}], "*", 
+       RowBox[{"r", "^", "j"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", "0", ",", 
+        RowBox[{"n", "-", "l", "-", "1"}]}], "}"}]}], "]"}]}], "/;", 
+   RowBox[{"l", "\[NotEqual]", "0"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"radial", "[", 
+   RowBox[{"Z_", ",", "n_", ",", "l_", ",", "r_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", "Z"}], "*", 
+      RowBox[{"r", "/", "n"}]}], "]"}], "*", 
+    RowBox[{"Sum", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"b", "[", 
+        RowBox[{"Z", ",", "n", ",", "0", ",", "j"}], "]"}], "*", 
+       RowBox[{"r", "^", "j"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", "0", ",", 
+        RowBox[{"n", "-", "1"}]}], "}"}]}], "]"}]}], "/;", 
+   RowBox[{"l", "\[Equal]", "0"}]}]}]}], "Input",
+ CellChangeTimes->{{3.591965083664794*^9, 3.5919653154120493`*^9}, 
+   3.591972523876181*^9}],
+
+Cell["(* Para obtener la normalizaci\[OAcute]n: *)", "Text",
+ CellChangeTimes->{{3.5919658141785765`*^9, 3.5919658334206777`*^9}, {
+  3.807745947864872*^9, 3.807745950953071*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"constante", "[", 
+   RowBox[{"Z_", ",", "n_", ",", "l_"}], "]"}], ":=", 
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Integrate", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"r", "*", 
+          RowBox[{"radial", "[", 
+           RowBox[{"Z", ",", "n", ",", "l", ",", "r"}], "]"}]}], ")"}], "^", 
+        "2"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"r", ",", "0", ",", "Infinity"}], "}"}], ",", 
+       RowBox[{"Assumptions", "\[Rule]", 
+        RowBox[{
+         RowBox[{"Re", "[", "Z", "]"}], ">", "0"}]}]}], "]"}], "\[Equal]", 
+     "1"}], ",", "b0"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"normalizacion", "[", 
+    RowBox[{"Z_", ",", "n_", ",", "l_"}], "]"}], ":=", 
+   RowBox[{"b0", "/.", 
+    RowBox[{
+     RowBox[{"constante", "[", 
+      RowBox[{"Z", ",", "n", ",", "l"}], "]"}], "[", 
+     RowBox[{"[", 
+      RowBox[{"2", ",", "1"}], "]"}], "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.591965837557914*^9, 3.5919659847573338`*^9}, {
+  3.591966026381714*^9, 3.5919660281778173`*^9}, {3.59196607823368*^9, 
+  3.5919661075453568`*^9}}],
+
+Cell["\<\
+(* La funci\[OAcute]n radial, para cualquier n y l, se obtiene de la \
+siguiente definici\[OAcute]n: *)\
+\>", "Text",
+ CellChangeTimes->{{3.591966174671196*^9, 3.591966196470443*^9}, {
+  3.807745954754303*^9, 3.807745957730653*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"finalradial", "[", 
+    RowBox[{"Z_", ",", "n_", ",", "l_", ",", "r_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"radial", "[", 
+     RowBox[{"Z", ",", "n", ",", "l", ",", "r"}], "]"}], "/.", 
+    RowBox[{"b0", "\[Rule]", 
+     RowBox[{"normalizacion", "[", 
+      RowBox[{"Z", ",", "n", ",", "l"}], "]"}]}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.591966202178769*^9, 3.5919662457002583`*^9}, {
+  3.5922343891222982`*^9, 3.59223441587929*^9}}],
+
+Cell["(* Hagamos gr\[AAcute]ficas cambiando los valores de n y de l *)", \
+"Text",
+ CellChangeTimes->{{3.5919735337289414`*^9, 3.591973536716112*^9}, {
+  3.5993895919788723`*^9, 3.599389599938737*^9}, {3.807745960762506*^9, 
+  3.8077459637307158`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["(* Primero dejemos fijo n y cambiemos Z *)", "Subsubsection",
+ CellChangeTimes->{{3.5993901753551693`*^9, 3.599390205358198*^9}, {
+  3.807745966474926*^9, 3.8077459696352253`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ncp", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ncl", "=", "0"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.5993894292456427`*^9, 3.599389443750629*^9}, {
+  3.599389501374576*^9, 3.599389503788246*^9}, {3.599389609812578*^9, 
+  3.5993896241321573`*^9}, {3.599390227152574*^9, 3.5993902286700497`*^9}, {
+  3.693849841523978*^9, 3.693849841603156*^9}, {3.693849948946392*^9, 
+  3.6938499490414753`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"funcion", "=", 
+   RowBox[{
+    RowBox[{"finalradial", "[", 
+     RowBox[{"Z", ",", "ncp", ",", "ncl", ",", "r"}], "]"}], "/.", 
+    RowBox[{"Z", "\[Rule]", "1"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{"funcion", ",", 
+   RowBox[{"{", 
+    RowBox[{"r", ",", "0", ",", "10"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "3"}], "}"}]}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<r\>\"", ",", "\"\<R(r)\>\""}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"4", "*", "Pi", "*", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"r", "*", "funcion"}], ")"}], "^", "2"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"r", ",", "0", ",", "10"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "8"}], "}"}]}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<r\>\"", ",", "\"\<4\[Pi] r^2 R(r)\>\""}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.599388841915731*^9, 3.5993889060107203`*^9}, {
+   3.599389139423911*^9, 3.599389139751721*^9}, {3.599389229465983*^9, 
+   3.599389252135049*^9}, {3.599389293329973*^9, 3.599389323022553*^9}, 
+   3.599389394803822*^9, {3.599389448586501*^9, 3.5993894521683807`*^9}, {
+   3.599389512968376*^9, 3.599389516184092*^9}, {3.693833023176214*^9, 
+   3.693833167965434*^9}, {3.693833198229123*^9, 3.693833233684602*^9}, {
+   3.693833269253017*^9, 3.693833269820771*^9}, {3.693849905107601*^9, 
+   3.6938499098585997`*^9}}],
+
+Cell["\<\
+(* A continuaci\[OAcute]n encontremos los puntos cr\[IAcute]ticos de la \
+probabilidad *)\
+\>", "Text",
+ CellChangeTimes->{{3.693849957074445*^9, 3.693849989529757*^9}, {
+  3.807745973066486*^9, 3.807745976003484*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"D", "[", 
+     RowBox[{
+      RowBox[{"4", " ", "Pi", " ", 
+       RowBox[{"r", "^", "2"}], 
+       RowBox[{"funcion", "^", "2"}]}], ",", "r"}], "]"}], "\[Equal]", "0"}], 
+   ",", "r"}], "]"}]], "Input",
+ CellChangeTimes->{{3.693840144928953*^9, 3.693840188732686*^9}}],
+
+Cell["\<\
+(* El efecto de la carga nuclear se puede apreciar con la siguiente instrucci\
+\[OAcute]n *)\
+\>", "Text",
+ CellChangeTimes->{{3.6938499968818703`*^9, 3.6938500290393267`*^9}, {
+  3.807745979451676*^9, 3.807745982579528*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"funcion", "=", 
+   RowBox[{
+    RowBox[{"finalradial", "[", 
+     RowBox[{"Z", ",", "ncp", ",", "ncl", ",", "r"}], "]"}], "/.", 
+    RowBox[{"Z", "\[Rule]", "2"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"4", "*", "Pi", "*", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"r", "*", "funcion"}], ")"}], "^", "2"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"r", ",", "0", ",", "15"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "15"}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.5993893545212812`*^9, 3.5993893837117*^9}, {
+  3.599389459240671*^9, 3.5993894630957108`*^9}, {3.599389525768654*^9, 
+  3.599389526254541*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1041, 744},
+WindowMargins->{{Automatic, 376}, {111, Automatic}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 276, 4, 92, "Title"],
+Cell[858, 28, 245, 3, 51, "Subtitle"],
+Cell[1106, 33, 1074, 29, 46, "Input"],
+Cell[2183, 64, 1383, 42, 46, "Input"],
+Cell[3569, 108, 179, 2, 30, "Text"],
+Cell[3751, 112, 1170, 33, 46, "Input"],
+Cell[4924, 147, 242, 5, 30, "Text"],
+Cell[5169, 154, 492, 12, 28, "Input"],
+Cell[5664, 168, 252, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[5941, 176, 186, 2, 35, "Subsubsection"],
+Cell[6130, 180, 457, 9, 46, "Input"],
+Cell[6590, 191, 1615, 40, 63, "Input"],
+Cell[8208, 233, 228, 5, 30, "Text"],
+Cell[8439, 240, 343, 10, 28, "Input"],
+Cell[8785, 252, 235, 5, 30, "Text"],
+Cell[9023, 259, 747, 20, 46, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

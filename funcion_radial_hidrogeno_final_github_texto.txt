@@ -1,0 +1,23 @@
+(* Orbitales hidrogenoides: Análisis de la parte radial
+Artículo Contactos 81, 5-10 (2011), J. Garza *)
+b[Z_,n_,l_,j_]:=(2*Z/n)*(j+l-n)/(j*(j+2*l+1))*b[Z,n,l,j-1]/;j>=1
+b[Z_,n_,l_,j_]:=b0/;j==0
+radial[Z_,n_,l_,r_]:=(r^l)*Exp[-Z*r/n]*Sum[b[Z,n,l,j]*r^j,{j,0,n-l-1}]/;l!=0
+radial[Z_,n_,l_,r_]:=Exp[-Z*r/n]*Sum[b[Z,n,0,j]*r^j,{j,0,n-1}]/;l==0
+(* Para obtener la normalización: *)
+constante[Z_,n_,l_]:=Solve[Integrate[(r*radial[Z,n,l,r])^2,{r,0,Infinity},Assumptions->Re[Z]>0]==1,b0]
+normalizacion[Z_,n_,l_]:=b0/.constante[Z,n,l][[2,1]];
+(* La función radial, para cualquier n y l, se obtiene de la siguiente definición: *)
+finalradial[Z_,n_,l_,r_]:=radial[Z,n,l,r]/.b0->normalizacion[Z,n,l];
+(* Hagamos gráficas cambiando los valores de n y de l *)
+(* Primero dejemos fijo n y cambiemos Z *)
+ncp=1;
+ncl=0;
+funcion=finalradial[Z,ncp,ncl,r]/.Z->1;
+Plot[funcion,{r,0,10},PlotRange->{0,3},AxesLabel->{"r","R(r)"}]
+Plot[4*Pi*(r*funcion)^2,{r,0,10},PlotRange->{0,8},AxesLabel->{"r","4π r^2 R(r)"}]
+(* A continuación encontremos los puntos críticos de la probabilidad *)
+Solve[D[4 Pi r^2funcion^2,r]==0,r]
+(* El efecto de la carga nuclear se puede apreciar con la siguiente instrucción *)
+funcion=finalradial[Z,ncp,ncl,r]/.Z->2;
+Plot[4*Pi*(r*funcion)^2,{r,0,15},PlotRange->{0,15}]
