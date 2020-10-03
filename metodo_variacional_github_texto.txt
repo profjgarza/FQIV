@@ -1,0 +1,53 @@
+(* Método variacional
+Jorge Garza, 2020. 
+Método variacional usando un parámetro *)
+psi[z_]=(1/Pi^(1/4))Exp[-z^2/2];
+Integrate[psi[z]^2,{z,-Infinity,Infinity}]
+Integrate[-psi[z]D[psi[z],{z,2}]+psi[z] z^4 psi[z],{z,-Infinity,Infinity}]
+%//N
+norma=1/Sqrt[Integrate[Exp[-2*alpha z^2],{z,-Infinity,Infinity},Assumptions->Re[alpha]>0]]
+psi[z_]=norma*Exp[-alpha z^2]
+Integrate[psi[z]^2,{z,-Infinity,Infinity},Assumptions->Re[alpha]>0]
+energia=Integrate[-psi[z]D[psi[z],{z,2}]+psi[z] z^4 psi[z],{z,-Infinity,Infinity},Assumptions->Re[alpha]>0]
+solucion=Solve[D[energia,alpha]==0,alpha]
+alfa=alpha/.solucion[[2]]//N
+energia/.alpha->alfa
+psi[y]/.alpha->alfa
+Combinación lineal de funciones de base
+f[i_,z_]:=(1/Sqrt[2^i Factorial[i] Sqrt[Pi]])HermiteH[i,z]Exp[-z^2/2]
+n=0;
+f[n,z]
+traslape[i_,j_]:=Integrate[f[i,z]f[j,z] ,{z,-Infinity,Infinity}]
+n=0;
+m=1;
+traslape[n,m]
+h[i_,j_]:=Integrate[-f[i,z]D[f[j,z],{z,2}]+f[i,z] z^4 f[j,z],{z,-Infinity,Infinity}]
+Clear[matrizH];
+total=4;
+matrizH=Table[N[h[i,j]],{i,0,total-1},{j,0,total-1}];
+matrizH//MatrixForm
+valores=Eigenvalues[matrizH];
+vectores=Eigenvectors[matrizH];
+valores[[4]]
+funcion[k_,y_]:=Sum[vectores[[k,i]]*f[i-1,y],{i,1,total}];
+estado=4;
+Plot[{funcion[estado,y]+valores[[estado]],y^4,valores[[estado]]},{y,-5,5},PlotRange->{valores[[estado]]-2,valores[[estado]]+1}]
+(* Bonus *)
+For[total=0,total<=12,total+=2,
+matrizH=Table[N[h[i,j]],{i,0,total,2},{j,0,total,2}];
+valores=Eigenvalues[matrizH];
+Print[total/2+1," : ", valores[[total/2+1]]];
+];
+(* Partícula sometida a un potencial lineal *)
+fpc[n_,x_]:=Sqrt[2]Sin[n*Pi*x];
+v[x_]:=x;
+hpc[i_,j_]:=Integrate[-fpc[i,x]D[fpc[j,x],{x,2}],{x,0,1}]+Integrate[fpc[i,x] v[x] fpc[j,x],{x,0,1}]
+Clear[matrizHpc];
+total=4;
+matrizHpc=Table[N[hpc[i,j]],{i,1,total},{j,1,total}];
+solucionpc[k_,y_]:=Sum[vectorespc[[k,i]]*fpc[i,y],{i,1,total}];
+valorespc=Eigenvalues[matrizHpc]
+vectorespc=Eigenvectors[matrizHpc];
+estado=4;
+solucionpc[estado,x]
+Plot[{solucionpc[estado,x]^2+valorespc[[estado]],v[x],valorespc[[estado]]},{x,0,1},PlotRange->{valorespc[[estado]]-2,valorespc[[estado]]+2}]
