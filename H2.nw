@@ -1,0 +1,27 @@
+echo "H2"
+start H2
+
+scratch_dir /tmp
+permanent_dir .
+
+memory total 250 Mb
+geometry units angstrom
+ symmetry c1
+ H 0.00 0.00 -0.32
+ H 0.00 0.00 0.32 
+end
+
+basis "ao basis" cartesian
+ H library "6-311G*"
+end
+
+charge 0
+
+scf
+    rhf
+    singlet
+    direct
+    maxiter 100
+end
+
+task scf optimize
