@@ -1,0 +1,27 @@
+echo "He"
+start He
+
+scratch_dir /tmp
+permanent_dir .
+
+memory total 250 Mb
+
+geometry units angstrom
+ symmetry c1
+ He 0.00 0.00 0.00 
+end
+
+basis "ao basis" cartesian
+ He library "6-311G**"
+end
+
+charge 0
+
+scf
+  rhf
+  singlet
+  direct
+  maxiter 100
+end
+
+task scf energy
