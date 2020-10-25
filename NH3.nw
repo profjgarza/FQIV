@@ -1,0 +1,30 @@
+echo "NH3"
+start NH3
+
+scratch_dir /tmp
+permanent_dir .
+
+memory total 250 Mb
+geometry units angstrom
+ symmetry c1
+N         -1.98056        0.26410       -0.00863
+H         -0.96323        0.32096        0.00453
+H         -2.29215        0.96213       -0.68244
+H         -2.29216        0.59530        0.90328
+end
+
+basis "ao basis" cartesian
+ H library "6-311G**"
+ N library "6-311G**"
+end
+
+charge 0
+
+scf
+    rhf
+    singlet
+    direct
+    maxiter 100
+end
+
+task scf optimize

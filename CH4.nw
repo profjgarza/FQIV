@@ -1,0 +1,31 @@
+echo "CH4"
+start CH4
+
+scratch_dir /tmp
+permanent_dir .
+
+memory total 250 Mb
+geometry units angstrom
+ symmetry c1
+C         -0.38896        0.21209        0.00000
+H          0.68104        0.21209        0.00000
+H         -0.74562       -0.50729        0.70723
+H         -0.74563       -0.04070       -0.97662
+H         -0.74563        1.18426        0.26938
+end
+
+basis "ao basis" cartesian
+ H library "6-311G**"
+ C library "6-311G**"
+end
+
+charge 0
+
+scf
+    rhf
+    singlet
+    direct
+    maxiter 100
+end
+
+task scf optimize
