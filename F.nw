@@ -1,0 +1,27 @@
+echo "F"
+start F
+
+scratch_dir /tmp
+permanent_dir .
+
+memory total 250 Mb
+
+geometry units angstrom
+ symmetry c1
+ F 0.00 0.00 0.00 
+end
+
+basis "ao basis" cartesian
+ F library "6-31G*"
+end
+
+charge 0
+
+scf
+  uhf
+  doublet
+  direct
+  maxiter 100
+end
+
+task scf energy
