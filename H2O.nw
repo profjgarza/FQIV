@@ -1,0 +1,30 @@
+echo "H2O"
+start H2O
+
+scratch_dir /tmp 
+permanent_dir .
+
+memory total 250 Mb
+
+geometry units angstrom
+  symmetry c1
+  O -1.32201 1.59105 0.00000 
+  H -0.35201 1.59105 0.00000
+  H -1.64534 0.69834 -0.1985
+end
+
+basis "ao basis" cartesian 
+ H library "6-311G**"
+ O library "6-311G**"
+end
+
+charge 0
+
+scf
+   rhf
+    singlet
+    direct
+    maxiter 100
+end
+
+task scf optimize
