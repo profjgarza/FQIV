@@ -1,0 +1,386 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     13097,        378]
+NotebookOptionsPosition[     11775,        334]
+NotebookOutlinePosition[     12189,        352]
+CellTagsIndexPosition[     12146,        349]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Teor\[IAcute]a de perturbaciones independiente del tiempo", "Title",
+ CellChangeTimes->{{3.602592533205001*^9, 3.6025925516040087`*^9}}],
+
+Cell["\<\
+La teor\[IAcute]a de perturbaciones independiente del tiempo se basa en \
+obtener aproximaciones a la funci\[OAcute]n de onda y la energ\[IAcute]a si \
+el hamiltoniano del sistema puede escribirse como\
+\>", "Text",
+ CellChangeTimes->{{3.623276369416677*^9, 3.623276420227799*^9}, {
+  3.623276469690152*^9, 3.623276514635186*^9}, {3.62327686425841*^9, 
+  3.623276893023707*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  OverscriptBox["H", "^"], "=", 
+  RowBox[{
+   SuperscriptBox[
+    OverscriptBox["H", "^"], "0"], "+", 
+   SuperscriptBox[
+    OverscriptBox["V", "^"], "'"]}]}]], "Text",
+ CellChangeTimes->{{3.623276566672151*^9, 3.623276649693611*^9}, 
+   3.623276871330567*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"donde", " ", 
+   SuperscriptBox[
+    OverscriptBox["H", "^"], "0"], " ", "representa", " ", "un", " ", 
+   "hamiltoniano", " ", "cuyas", " ", "funciones", " ", "propias"}], ",", 
+  SuperscriptBox["\[Psi]", 
+   RowBox[{"(", "0", ")"}]], ",", " ", 
+  RowBox[{"y", " ", "valores", " ", "propios"}], ",", 
+  SuperscriptBox["\[Epsilon]", 
+   RowBox[{"(", "0", ")"}]], ",", " ", 
+  RowBox[{"son", " ", 
+   RowBox[{"conocidos", "."}]}]}]], "Text",
+ CellChangeTimes->{{3.623276654414529*^9, 3.623276901217123*^9}}],
+
+Cell["\<\
+As\[IAcute], la correcci\[OAcute]n a primer orden en la energ\[IAcute]a del \
+estado i se obtiene de\
+\>", "Text",
+ CellChangeTimes->{{3.623276903009041*^9, 3.62327692163463*^9}, 
+   3.623277053825563*^9, {3.623277454965392*^9, 3.623277467956409*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  SubsuperscriptBox["\[Epsilon]", "i", 
+   RowBox[{"(", "1", ")"}]], "=", 
+  RowBox[{
+   RowBox[{"<", 
+    SubsuperscriptBox["\[Psi]", "i", 
+     RowBox[{"(", "0", ")"}]]}], "|", 
+   RowBox[{
+    OverscriptBox["V", "^"], "'"}], "|", 
+   RowBox[{
+    SubsuperscriptBox["\[Psi]", "i", 
+     RowBox[{"(", "0", ")"}]], ">"}]}]}]], "Text",
+ CellChangeTimes->{{3.623276941885826*^9, 3.623277053826193*^9}, {
+  3.623277477486113*^9, 3.6232775300437326`*^9}}],
+
+Cell["y la correcci\[OAcute]n a segundo order en la energ\[IAcute]a es", \
+"Text",
+ CellChangeTimes->{{3.623277058832274*^9, 3.6232770756230392`*^9}, {
+  3.6232775417348967`*^9, 3.623277546898592*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  SubsuperscriptBox["\[Epsilon]", "i", 
+   RowBox[{"(", "2", ")"}]], "=", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", 
+    RowBox[{
+     RowBox[{"n", "=", "0"}], "\[IndentingNewLine]", 
+     RowBox[{"n", "\[NotEqual]", "i"}]}], "\[Infinity]"], 
+   FractionBox[
+    RowBox[{"|", 
+     RowBox[{"<", 
+      SubsuperscriptBox["\[Epsilon]", "i", 
+       RowBox[{"(", "0", ")"}]]}], "|", 
+     RowBox[{
+      OverscriptBox["V", "^"], "'"}], "|", 
+     RowBox[{
+      SubsuperscriptBox["\[Epsilon]", "n", 
+       RowBox[{"(", "0", ")"}]], ">"}], "|"}], 
+    RowBox[{
+     SubsuperscriptBox["\[Epsilon]", "i", 
+      RowBox[{"(", "0", ")"}]], "-", 
+     SubsuperscriptBox["\[Epsilon]", "n", 
+      RowBox[{"(", "0", ")"}]]}]]}]}]], "Text",
+ CellChangeTimes->{{3.623277117322301*^9, 3.6232771205312366`*^9}, {
+   3.6232772096149683`*^9, 3.623277261117093*^9}, {3.623277299656146*^9, 
+   3.623277447198317*^9}, 3.623277541735537*^9}],
+
+Cell["As\[IAcute], a segundo order, la energ\[IAcute]a total se aproxima \
+como", "Text",
+ CellChangeTimes->{{3.623277555112688*^9, 3.623277579805503*^9}, 
+   3.623277653158296*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["\[Epsilon]", "i"], "\[TildeTilde]", 
+  RowBox[{
+   SubsuperscriptBox["\[Epsilon]", "i", 
+    RowBox[{"(", "0", ")"}]], "+", 
+   SubsuperscriptBox["\[Epsilon]", "i", 
+    RowBox[{"(", "1", ")"}]], "+", 
+   SubsuperscriptBox["\[Epsilon]", "i", 
+    RowBox[{"(", "2", ")"}]]}]}]], "Text",
+ CellChangeTimes->{{3.623277599841791*^9, 3.623277653158802*^9}}],
+
+Cell["\<\
+Abordemos el mismo problema del potencial lineal y contrastemos el resultado \
+con el m\[EAcute]todo basado en la combinaci\[OAcute]n lineal de funciones de \
+base\
+\>", "Text",
+ CellChangeTimes->{{3.623277661767795*^9, 3.6232777075860023`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"v", "[", "x_", "]"}], ":=", "x"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fpc", "[", 
+    RowBox[{"n_", ",", "x_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"Sqrt", "[", "2", "]"}], 
+    RowBox[{"Sin", "[", 
+     RowBox[{"n", "*", "Pi", "*", "x"}], "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.602582910118607*^9, 3.60258294286901*^9}, {
+  3.6025830253280773`*^9, 3.6025831322817717`*^9}, {3.6025867985958357`*^9, 
+  3.602586821002643*^9}, {3.618249238871196*^9, 3.61824923916733*^9}, {
+  3.618249431150482*^9, 3.618249432046052*^9}, {3.6232777452918243`*^9, 
+  3.623277745804442*^9}}],
+
+Cell["\<\
+Lo que se define a continuaci\[OAcute]n est\[AAcute] relacionado con el \
+estado n\
+\>", "Text",
+ CellChangeTimes->{{3.6232779905836697`*^9, 3.6232780220274*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"primerorden", "[", "n_", "]"}], ":=", 
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"fpc", "[", 
+      RowBox[{"n", ",", "x"}], "]"}], " ", 
+     RowBox[{"v", "[", "x", "]"}], 
+     RowBox[{"fpc", "[", 
+      RowBox[{"n", ",", "x"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6025871730242434`*^9, 3.60258723193864*^9}, {
+  3.602587587568985*^9, 3.602587600631774*^9}, {3.6025926028611507`*^9, 
+  3.602592607276188*^9}, {3.602592710603622*^9, 3.602592749808531*^9}, {
+  3.62327773045352*^9, 3.623277730693389*^9}, {3.62327792758279*^9, 
+  3.623277928171464*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"valoresref", "[", "n_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"n", "^", "2"}], "*", "Pi", "*", "Pi"}]}]], "Input",
+ CellChangeTimes->{{3.602587530523116*^9, 3.6025875583167353`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"etotal", "[", "n_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"valoresref", "[", "n", "]"}], "+", 
+   RowBox[{"primerorden", "[", "n", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.602587246891871*^9, 3.602587282328622*^9}, {
+  3.602587564814011*^9, 3.602587569255992*^9}, {3.602587635574815*^9, 
+  3.602587661164138*^9}, {3.602592610003097*^9, 3.6025926121795807`*^9}, {
+  3.6025927931754513`*^9, 3.6025928129503183`*^9}, {3.602593025728881*^9, 
+  3.6025930291280527`*^9}, {3.623277933739524*^9, 3.6232779576058807`*^9}}],
+
+Cell["Para el estado n = 1", "Text",
+ CellChangeTimes->{{3.623278027139947*^9, 3.623278037791018*^9}, {
+  3.699810733906583*^9, 3.6998107363131447`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"etotal", "[", "1", "]"}], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.602587675011368*^9, 3.602587682012137*^9}, {
+  3.602592807269994*^9, 3.602592824102305*^9}, {3.602605495924857*^9, 
+  3.602605496084448*^9}, {3.623277937790292*^9, 3.6232779379879417`*^9}}],
+
+Cell["\<\
+Compare este resultado con el obtenido usando varias funciones de base.\
+\>", "Text",
+ CellChangeTimes->{{3.6232778195800343`*^9, 3.623277844470037*^9}}],
+
+Cell["\<\
+Ejercicio : Aplique este procedimiento para estados mayores a 1\
+\>", "Text",
+ CellChangeTimes->{{3.6232780500941277`*^9, 3.623278073888782*^9}, 
+   3.699810699930331*^9}],
+
+Cell["\<\
+La correcci\[OAcute]n a segundo orden se obtendr\[AAcute] a partir de lo \
+siguiente\
+\>", "Text",
+ CellChangeTimes->{{3.6998107538877277`*^9, 3.6998107791007633`*^9}, 
+   3.699810840647855*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"integral", "[", 
+    RowBox[{"i_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"fpc", "[", 
+       RowBox[{"i", ",", "x"}], "]"}], 
+      RowBox[{"v", "[", "x", "]"}], 
+      RowBox[{"fpc", "[", 
+       RowBox[{"n", ",", "x"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"denominador", "[", 
+    RowBox[{"i_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"valoresref", "[", "n", "]"}], "-", 
+    RowBox[{"valoresref", "[", "i", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fraccion", "[", 
+    RowBox[{"i_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"integral", "[", 
+      RowBox[{"i", ",", "n"}], "]"}], "^", "2"}], "/", 
+    RowBox[{"denominador", "[", 
+     RowBox[{"i", ",", "n"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"segundoorden", "[", 
+   RowBox[{"n_", ",", "total_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Sum", "[", 
+    RowBox[{
+     RowBox[{"fraccion", "[", 
+      RowBox[{"i", ",", "n"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"n", "-", "1"}]}], "}"}]}], "]"}], "+", 
+   RowBox[{"Sum", "[", 
+    RowBox[{
+     RowBox[{"fraccion", "[", 
+      RowBox[{"i", ",", "n"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"n", "+", "1"}], ",", "total"}], "}"}]}], "]"}]}]}]}], "Input",\
+
+ CellChangeTimes->{{3.6025925915295477`*^9, 3.6025926687302303`*^9}, {
+  3.602592832054945*^9, 3.602592973796422*^9}, {3.602593194838846*^9, 
+  3.602593216622645*^9}, {3.602604773445549*^9, 3.602604803069489*^9}, {
+  3.623277849641815*^9, 3.623277882974183*^9}, {3.623323265861443*^9, 
+  3.623323393397442*^9}, {3.623323471572517*^9, 3.623323525726783*^9}}],
+
+Cell["Aplicando la correcci\[OAcute]n a segundo al estado n = 1", "Text",
+ CellChangeTimes->{{3.623278221257422*^9, 3.623278242107869*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"segundoorden", "[", 
+   RowBox[{"1", ",", "5"}], "]"}], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.602592944415753*^9, 3.602592985500619*^9}, {
+  3.602593016041225*^9, 3.602593016552659*^9}, {3.602605521908011*^9, 
+  3.6026055224033546`*^9}, {3.602605587667828*^9, 3.602605597440243*^9}, {
+  3.6232778932258253`*^9, 3.623277893608561*^9}, {3.623278082232017*^9, 
+  3.62327809198967*^9}, {3.623278132376626*^9, 3.62327813279277*^9}, {
+  3.623323255766037*^9, 3.623323256042445*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"etotalfinal", "[", 
+   RowBox[{"n_", ",", "total_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"valoresref", "[", "n", "]"}], "+", 
+   RowBox[{"primerorden", "[", "n", "]"}], "+", 
+   RowBox[{"segundoorden", "[", 
+    RowBox[{"n", ",", "total"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.602593035186755*^9, 3.602593063017359*^9}, {
+  3.6232779005271673`*^9, 3.62327790107126*^9}, {3.623278111555101*^9, 
+  3.623278115396101*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"etotalfinal", "[", 
+   RowBox[{"1", ",", "5"}], "]"}], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.602593066613248*^9, 3.602593077991136*^9}, {
+  3.602604961377125*^9, 3.602604961753736*^9}, {3.602605533674217*^9, 
+  3.602605536050618*^9}, {3.6026055904409924`*^9, 3.60260560000007*^9}, {
+  3.623278119722699*^9, 3.623278125456985*^9}, {3.623323259908494*^9, 
+  3.62332326008295*^9}}],
+
+Cell["\<\
+Nuevamente compare el resultado con lo obtenido a primer orden y con el m\
+\[EAcute]todo de combinaci\[OAcute]n lineal de funciones de base.\
+\>", "Text",
+ CellChangeTimes->{{3.623278149618353*^9, 3.623278207448904*^9}, {
+  3.623333915836607*^9, 3.623333917315673*^9}}]
+}, Open  ]]
+},
+WindowSize->{740, 867},
+WindowMargins->{{196, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+FrontEndVersion->"11.0 para Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 142, 1, 148, "Title"],
+Cell[724, 25, 388, 7, 49, "Text"],
+Cell[1115, 34, 286, 9, 36, "Text"],
+Cell[1404, 45, 541, 13, 60, "Text"],
+Cell[1948, 60, 261, 5, 30, "Text"],
+Cell[2212, 67, 475, 14, 38, "Text"],
+Cell[2690, 83, 201, 3, 30, "Text"],
+Cell[2894, 88, 947, 26, 85, "Text"],
+Cell[3844, 116, 181, 3, 30, "Text"],
+Cell[4028, 121, 391, 10, 35, "Text"],
+Cell[4422, 133, 255, 5, 49, "Text"],
+Cell[4680, 140, 662, 16, 54, "Input"],
+Cell[5345, 158, 172, 4, 30, "Text"],
+Cell[5520, 164, 700, 17, 32, "Input"],
+Cell[6223, 183, 215, 5, 32, "Input"],
+Cell[6441, 190, 548, 10, 32, "Input"],
+Cell[6992, 202, 153, 2, 30, "Text"],
+Cell[7148, 206, 295, 5, 32, "Input"],
+Cell[7446, 213, 163, 3, 30, "Text"],
+Cell[7612, 218, 181, 4, 30, "Text"],
+Cell[7796, 224, 204, 5, 30, "Text"],
+Cell[8003, 231, 1923, 56, 117, "Input"],
+Cell[9929, 289, 139, 1, 30, "Text"],
+Cell[10071, 292, 518, 9, 32, "Input"],
+Cell[10592, 303, 462, 11, 32, "Input"],
+Cell[11057, 316, 420, 8, 32, "Input"],
+Cell[11480, 326, 279, 5, 49, "Text"]
+}, Open  ]]
+}
+]
+*)
+
