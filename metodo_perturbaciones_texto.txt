@@ -1,0 +1,47 @@
+Teoría de perturbaciones independiente del tiempo
+La teoría de perturbaciones independiente del tiempo se basa en obtener aproximaciones a la función de onda y la energía si el hamiltoniano del sistema puede escribirse como
+Overscript[H, ^]=Overscript[H, ^]^0+Overscript[V, ^]^'
+donde Overscript[H, ^]^0 representa un hamiltoniano cuyas funciones propias,\[Psi]^(0), y valores propios,\[Epsilon]^(0), son conocidos.
+Así, la corrección a primer orden en la energía del estado i se obtiene de
+\!\(
+\*SubsuperscriptBox[\(\[Epsilon]\), \(i\), \((1)\)] = \(\(\(<\)
+\*SubsuperscriptBox[\(\[Psi]\), \(i\), \((0)\)]\) | 
+\*OverscriptBox[\(V\), \(^\)]' | \(
+\*SubsuperscriptBox[\(\[Psi]\), \(i\), \((0)\)]\(>\)\)\)\)
+y la corrección a segundo order en la energía es
+\!\(
+\*SubsuperscriptBox[\(\[Epsilon]\), \(i\), \((2)\)] = \(
+\*UnderoverscriptBox[\(\[Sum]\), \(n = 0\[IndentingNewLine]
+n != i\), \(\[Infinity]\)]
+\*FractionBox[\(\(|\)\(\(<\)
+\*SubsuperscriptBox[\(\[Epsilon]\), \(i\), \((0)\)]\)\(|\)\(
+\*OverscriptBox[\(V\), \(^\)]'\)\(|\)\(
+\*SubsuperscriptBox[\(\[Epsilon]\), \(n\), \((0)\)]\(>\)\)\(|\)\), \(
+\*SubsuperscriptBox[\(\[Epsilon]\), \(i\), \((0)\)] - 
+\*SubsuperscriptBox[\(\[Epsilon]\), \(n\), \((0)\)]\)]\)\)
+Así, a segundo order, la energía total se aproxima como
+Subscript[\[Epsilon], i]\[TildeTilde]\!\(
+\*SubsuperscriptBox[\(\[Epsilon]\), \(i\), \((0)\)] + 
+\*SubsuperscriptBox[\(\[Epsilon]\), \(i\), \((1)\)] + 
+\*SubsuperscriptBox[\(\[Epsilon]\), \(i\), \((2)\)]\)
+Abordemos el mismo problema del potencial lineal y contrastemos el resultado con el método basado en la combinación lineal de funciones de base
+v[x_]:=x;
+fpc[n_,x_]:=Sqrt[2]Sin[n*Pi*x];
+Lo que se define a continuación está relacionado con el estado n
+primerorden[n_]:=Integrate[fpc[n,x] v[x]fpc[n,x],{x,0,1}]
+valoresref[n_]:=n^2*Pi*Pi
+etotal[n_]:=valoresref[n]+primerorden[n]
+Para el estado n = 1
+etotal[1]//N
+Compare este resultado con el obtenido usando varias funciones de base.
+Ejercicio : Aplique este procedimiento para estados mayores a 1
+La corrección a segundo orden se obtendrá a partir de lo siguiente
+integral[i_,n_]:=Integrate[fpc[i,x]v[x]fpc[n,x],{x,0,1}];
+denominador[i_,n_]:=valoresref[n]-valoresref[i];
+fraccion[i_,n_]:=integral[i,n]^2/denominador[i,n];
+segundoorden[n_,total_]:=Sum[fraccion[i,n],{i,1,n-1}]+Sum[fraccion[i,n],{i,n+1,total}]
+Aplicando la corrección a segundo al estado n = 1
+segundoorden[1,5]//N
+etotalfinal[n_,total_]:=valoresref[n]+primerorden[n]+segundoorden[n,total]
+etotalfinal[1,5]//N
+Nuevamente compare el resultado con lo obtenido a primer orden y con el método de combinación lineal de funciones de base.
